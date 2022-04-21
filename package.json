@@ -1,0 +1,27 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "This is a Pokedex by Dana Carroll",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danajcarroll/newPokedex.git"
+  },
+  "keywords": [
+    "pokedex",
+    "portfolio",
+    "webapp"
+  ],
+  "author": "Dana Carroll",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danajcarroll/newPokedex/issues"
+  },
+  "homepage": "https://github.com/danajcarroll/newPokedex#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
