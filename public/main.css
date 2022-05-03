@@ -3,3 +3,62 @@
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    min-height: 100vh;
+    width: 100vw;
+}
+main {
+    padding: 0px 15px;
+    background-color: pink;
+}
+
+/* Featured Pokemon */
+.featPokemon {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: lightblue;
+    padding: 10px;
+    aspect-ratio: 1/1;
+}
+.numberStatus {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.imageName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.featImage {
+    width: 60%;
+    aspect-ratio: 1/1;
+    background-color: palevioletred;
+}
+
+
+
+
+/* .pokemonThumbnail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: pink;
+    padding: 10px;
+}
+.thumbnailType {
+    display: flex;
+    flex-direction: row;
+}
+.miniType {
+    display: inline-block;
+    padding: 3px 5px;
+    background-color: lightblue;
+    margin-right: 3px;
+}
+.thumbnailImage {
+    background-color: white;
+    width: 50%;
+} */
