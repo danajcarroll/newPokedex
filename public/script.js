@@ -5,8 +5,8 @@ console.log('Hey! Looks like this is working!');
 
 // Generating 3 featured Pokemon
 let featuredPokemonIDs = [];
-const featBoxNodes = document.querySelectorAll('.featPokemon');
-console.log(featBoxNodes);
+let containerBox = document.getElementById('featPokemonContainer');
+let pokemonHTML = [];
 
 function getFeaturedIDs() {
     for (let i = 1; i <= 3; i++) {
@@ -17,7 +17,7 @@ function getFeaturedIDs() {
 
 async function getFeaturedPokemon(arr) {
     arr.forEach(async id => {
-        console.log(id);
+        // console.log(id);
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
         const data = await response.json()
         .then(data => {
@@ -31,28 +31,56 @@ async function getFeaturedPokemon(arr) {
             } = data;
             let featuredInfo = {name, id, spriteLink};
             return featuredInfo;
-        }).then(data => {
-            console.log(data);
-            // I want to use this box to put the 3 featured pokemon in!
-            featBoxNodes.forEach(box => {
-                // console.log(box.childNodes);
-                insertFeaturedPokemon(data);
-            });
-        }
-        )
+        }).then(pokemon => {
+            console.log(pokemon);
+            let containerBoxHTML = `
+                <div class="featPokemon" id="">
+                <div class="numberStatus">
+                    <h1 class="featID">${pokemon.id}</h1>
+                    <div class="heartIcon"></div>
+                </div>
+                <div class="imageName">
+                    <img src="${pokemon.spriteLink}" alt="" class="featImage">
+                    <h1 class="featName">${pokemon.name}</h1>
+                </div>
+                </div>
+                `;
+            
+            // let containerBoxHTML = Object.keys(pokemon).map(obj => {
+            //     return `
+            //     <div class="featPokemon" id="">
+            //     <div class="numberStatus">
+            //         <h1 class="featID">${pokemon.id}</h1>
+            //         <div class="heartIcon"></div>
+            //     </div>
+            //     <div class="imageName">
+            //         <img src="${pokemon.spriteLink}" alt="" class="featImage">
+            //         <h1 class="featName">${pokemon.name}</h1>
+            //     </div>
+            //     </div>
+            //     `;
+            // });
+            pokemonHTML.push(containerBoxHTML);
+            console.log(pokemonHTML);
+            return pokemonHTML;
+        })
+        containerBox.innerHTML = pokemonHTML.join('');
     });
 }
 
-function insertFeaturedPokemon(obj) {
-    let pokemonID = document.getElementsByClassName('featID');
-    let pokemonName = document.getElementsByClassName('featName');
-    let spriteSRC = document.getElementsByClassName('featImage').src;
-    pokemonID.innerHTML = obj.id;
-    pokemonName.innerHTML = obj.name;
-    spriteSRC = obj.spriteLink;
+/* 
+                <div class="featPokemon" id="">
+                    <div class="numberStatus">
+                        <h1 class="featID">${pokemon.id}</h1>
+                        <div class="heartIcon"></div>
+                    </div>
+                    <div class="imageName">
+                        <img src="${pokemon.spriteLink}" alt="" class="featImage">
+                        <h1 class="featName">${pokemon.name}</h1>
+                    </div>
+                </div>`;
 
-
-}
+*/
 
 getFeaturedIDs(); // THIS FUNCTION SHOULD ONLY RUN ONCE A DAY, don't want new pokemon with every refresh
 getFeaturedPokemon(featuredPokemonIDs);
