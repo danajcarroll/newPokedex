@@ -45,42 +45,12 @@ async function getFeaturedPokemon(arr) {
                 </div>
                 </div>
                 `;
-            
-            // let containerBoxHTML = Object.keys(pokemon).map(obj => {
-            //     return `
-            //     <div class="featPokemon" id="">
-            //     <div class="numberStatus">
-            //         <h1 class="featID">${pokemon.id}</h1>
-            //         <div class="heartIcon"></div>
-            //     </div>
-            //     <div class="imageName">
-            //         <img src="${pokemon.spriteLink}" alt="" class="featImage">
-            //         <h1 class="featName">${pokemon.name}</h1>
-            //     </div>
-            //     </div>
-            //     `;
-            // });
             pokemonHTML.push(containerBoxHTML);
-            console.log(pokemonHTML);
             return pokemonHTML;
         })
         containerBox.innerHTML = pokemonHTML.join('');
     });
 }
-
-/* 
-                <div class="featPokemon" id="">
-                    <div class="numberStatus">
-                        <h1 class="featID">${pokemon.id}</h1>
-                        <div class="heartIcon"></div>
-                    </div>
-                    <div class="imageName">
-                        <img src="${pokemon.spriteLink}" alt="" class="featImage">
-                        <h1 class="featName">${pokemon.name}</h1>
-                    </div>
-                </div>`;
-
-*/
 
 getFeaturedIDs(); // THIS FUNCTION SHOULD ONLY RUN ONCE A DAY, don't want new pokemon with every refresh
 getFeaturedPokemon(featuredPokemonIDs);
