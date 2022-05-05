@@ -35,14 +35,15 @@ async function getFeaturedPokemon(arr) {
             console.log(pokemon);
             let containerBoxHTML = `
                 <div class="featPokemon" id="">
-                <div class="numberStatus">
-                    <h1 class="featID">${pokemon.id}</h1>
-                    <div class="heartIcon"></div>
-                </div>
-                <div class="imageName">
-                    <img src="${pokemon.spriteLink}" alt="" class="featImage">
-                    <h1 class="featName">${pokemon.name}</h1>
-                </div>
+                    <img src="images/pokeball.svg" class="pokeBk">
+                    <div class="numberStatus">
+                        <h1 class="featID">${pokemon.id}</h1>
+                        <div class="heartIcon"></div>
+                    </div>
+                    <div class="imageName">
+                        <img src="${pokemon.spriteLink}" alt="" class="featImage">
+                        <h1 class="featName">${pokemon.name}</h1>
+                    </div>
                 </div>
                 `;
             pokemonHTML.push(containerBoxHTML);

@@ -15,8 +15,7 @@ body {
     width: 100vw;
 }
 main {
-    padding: 0px 15px;
-    background-color: pink;
+    padding: 0px 20px;
 }
 header {
     height: 50px;
@@ -51,29 +50,51 @@ header img {
 }
 
 /* Featured Pokemon */
+h2 {
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
 .featPokemon {
+    position: relative;
     margin: auto;
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: lightblue;
+    background-color: coral;
     padding: 10px;
     aspect-ratio: 1/1;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 .numberStatus {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 15%;
+    z-index: 1;
 }
 .imageName {
+    height: 85%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    z-index: 1;
 }
 .featImage {
-    width: 60%;
+    width: 65%;
     aspect-ratio: 1/1;
-    background-color: palevioletred;
+    display: flex;
+}
+.pokeBk {
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0.05;
 }
 
 
