@@ -2,17 +2,19 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
     font-weight: normal;
 }
 :root {
     --accentRed: #FF6464;
     --mainRed: #E94D4D;
     --white: #FFFFFF;
+    --basicHeart: #a7a7a7;
+    --activeHeart: #FFCFCF;
 }
 body {
     min-height: 100vh;
     width: 100vw;
+    font-family: 'Inter', sans-serif;
 }
 main {
     padding: 0px 20px;
@@ -86,6 +88,14 @@ h2 {
     width: 65%;
     aspect-ratio: 1/1;
     display: flex;
+}
+.fa-heart {
+    font-weight: 900;
+    font-size: 30px;
+    color: var(--basicHeart);
+}
+.activeHeart {
+    color: var(--activeHeart);
 }
 .pokeBk {
     width: 90%;
