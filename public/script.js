@@ -8,6 +8,14 @@ let featuredPokemonIDs = [];
 let containerBox = document.getElementById('featPokemonContainer');
 let pokemonHTML = [];
 let featuredColors = [];
+let featuredPokemon = [];
+// Featured Elements
+let featIDs = document.getElementsByClassName('featID');
+let featIDList = [...featIDs];
+let featNames = document.getElementsByClassName('featName');
+let featNameList = [...featNames];
+let featImages = document.getElementsByClassName('featImage');
+let featImageList = [...featImages];
 
 function getFeaturedIDs() {
     for (let i = 1; i <= 3; i++) {
@@ -42,39 +50,43 @@ async function getFeaturedPokemon(arr) {
             pokemon.color = `${colorData.color.name}`
             return pokemon;
         }).then(pokemon => {
-            console.log(pokemon);
-            let containerBoxHTML = `
-                <div class="featPokemon ${pokemon.color}Main">
-                    <img src="images/pokeball.svg" class="pokeBk">
-                    <div class="numberStatus">
-                        <h1 class="featID">${pokemon.id}</h1>
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div class="imageName">
-                        <img src="${pokemon.spriteLink}" alt="" class="featImage">
-                        <h1 class="featName">${capitalizeFirst(pokemon.name)}</h1>
-                    </div>
-                </div>
-                `;
-            pokemonHTML.push(containerBoxHTML);
-            return {pokemonHTML, pokemon};
-        }).then(obj => {
-            containerBox.innerHTML = pokemonHTML.join('');
-            let pokemonColor = obj.pokemon.color;
+            let pokemonColor = pokemon.color;
             featuredColors.push(pokemonColor);
-            console.log(featuredColors);
-        })
-        let featHTMLList = document.getElementsByClassName('featPokemon');
-        let featArray = [...featHTMLList];
-        featArray.forEach((element, index) => {
+            featuredPokemon.push(pokemon);
+        });
+        let featBKList = document.getElementsByClassName('featPokemon');
+        let featBKs = [...featBKList];
+        featBKs.forEach((element, index) => {
             element.style.backgroundColor = `var(--${featuredColors[index]}Main)`;
         });
+        if (featuredPokemon.length == 3) {
+            featIDList.forEach((element, index) => {
+                element.innerHTML = featuredPokemon[index].id;
+            });
+            featNameList.forEach((name, index) => {
+                name.innerHTML = capitalizeFirst(featuredPokemon[index].name);
+            });
+            featImageList.forEach((image, index) => {
+                image.src = featuredPokemon[index].spriteLink;
+                
+            });
+        }
     });
 
 }
+let featuredSlide = new Splide('.splide', {
+    perPage: 1,
+    gap: '1em',
+    pagination: true,
+    width: '100%'
+})
 
-getFeaturedIDs(); // THIS FUNCTION SHOULD ONLY RUN ONCE A DAY, don't want new pokemon with every refresh
-getFeaturedPokemon(featuredPokemonIDs);
+window.addEventListener('DOMContentLoaded', (event) => {
+    getFeaturedIDs(); // THIS FUNCTION SHOULD ONLY RUN ONCE A DAY, don't want new pokemon with every refresh
+    getFeaturedPokemon(featuredPokemonIDs);
+    featuredSlide.mount();
+});
+
 
 
 
