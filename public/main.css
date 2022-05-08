@@ -64,6 +64,9 @@ header h1 {
 header img {
     height: 75%;
 }
+#menuButton {
+    cursor: pointer;
+}
 .menuButtonHolder {
     height: 100%;
     display: flex;
@@ -80,6 +83,24 @@ header img {
     color: var(--white);
     height: 50%;
 }
+/* Menu Sidebar */
+.sidebar {
+    visibility: hidden;
+    position: absolute;
+    transition: visibility 0ms 500ms;
+    width: 50vw;
+}
+.sidebar.activeMenu {
+    visibility: visible;
+    transition: none;
+}
+main {
+    transition: transform 500ms;
+}
+.sidebar.activeMenu ~ main {
+    transform: translateX(50vw);
+}
+
 
 /* Featured Pokemon */
 h2 {
@@ -110,8 +131,8 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
     z-index: 1;
+    padding-bottom: 10px;
 }
 .featImage {
     width: 65%;
@@ -135,28 +156,3 @@ h2 {
     z-index: 0;
     opacity: 0.05;
 }
-
-
-
-
-/* .pokemonThumbnail {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: pink;
-    padding: 10px;
-}
-.thumbnailType {
-    display: flex;
-    flex-direction: row;
-}
-.miniType {
-    display: inline-block;
-    padding: 3px 5px;
-    background-color: lightblue;
-    margin-right: 3px;
-}
-.thumbnailImage {
-    background-color: white;
-    width: 50%;
-} */
