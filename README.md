@@ -2,7 +2,8 @@
 
 An app for users to browse Pokémon using the PokéAPI.
 
-![Pokédex mockup in mobile](/pokedex-mobile.png?raw=true "App in Mobile Device")
+<!-- ![Pokédex mockup in mobile](/pokedex-mobile.png?raw=true "App in Mobile Device") -->
+<img src="/pokedex-mobile.png" width="300">
 
 ## Project Status
 
