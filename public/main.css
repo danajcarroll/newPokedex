@@ -10,6 +10,8 @@
     --white: #FFFFFF;
     --basicHeart: #a7a7a7;
     --activeHeart: #FFCFCF;
+    --lightGrey: #F1F1F1;
+    --darkGrey: #5B5B5B;
 
     --blackMain: rgb(67, 67, 67);
     --blackAccent: #000;
@@ -42,12 +44,34 @@
     --yellowAccent: #000;
 }
 body {
-    min-height: 100vh;
+    height: 100vh;
     width: 100vw;
     font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 main {
     padding: 0px 20px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; */
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 35% 25%;
+    grid-template-areas: 
+    "featPokemon"
+    "favePokemon"
+    "browsePokemon"
+    ;
+}
+.featPokemonSection {
+    grid-area: featPokemon;
+}
+.favouriteSection {
+    grid-area: favePokemon;
+}
+.browsePokemon {
+    grid-area: browsePokemon;
 }
 header {
     height: 50px;
@@ -85,19 +109,48 @@ header img {
 }
 /* Menu Sidebar */
 .sidebar {
-    visibility: hidden;
-    position: absolute;
-    transition: visibility 0ms 500ms;
+    position: fixed;
     width: 50vw;
+    height: 100vh;
+    left: -50vw;
+    transition: left 500ms ease;
+    background-color: var(--lightGrey);
+
+    display: grid;
+    grid-template-rows: 50px auto;
 }
-.sidebar.activeMenu {
-    visibility: visible;
-    transition: none;
+.menuTitle {
+    height: 50px;
+    text-align: center;
+    color: var(--white);
+    font-size: 1.1rem;
+    background-color: var(--accentRed);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-main {
+.sidebar ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding: 0px 15px 0px 15px;
+}
+.sidebar ul li {
+    font-size: 1rem;
+}
+a {
+    color: var(--darkGrey);
+    text-decoration: none;
+}
+.sidebar.activeSidebar {
+    left: 0px;
+}
+main, header {
     transition: transform 500ms;
 }
-.sidebar.activeMenu ~ main {
+.activeMenu {
     transform: translateX(50vw);
 }
 
@@ -105,8 +158,6 @@ main {
 /* Featured Pokemon */
 h2 {
     font-size: 15px;
-    margin-top: 15px;
-    margin-bottom: 5px;
 }
 .featPokemon {
     position: relative;

@@ -16,6 +16,33 @@ let featNames = document.getElementsByClassName('featName');
 let featNameList = [...featNames];
 let featImages = document.getElementsByClassName('featImage');
 let featImageList = [...featImages];
+// Menu bar
+const menuButton = document.getElementById('menuButton');
+const sidebar = document.getElementById('sidebar');
+const main = document.querySelector('main');
+const header = document.querySelector('header');
+
+
+menuButton.addEventListener('click', () => {
+    sidebar.classList.toggle('activeSidebar');
+    main.classList.toggle('activeMenu');
+    header.classList.toggle('activeMenu');
+})
+window.addEventListener('click', (event) => {
+    if (!event.target == header || event.target == main) {
+        console.log('clicked!');
+        sidebar.classList.toggle('activeSidebar');
+        main.classList.toggle('activeMenu');
+        header.classList.toggle('activeMenu');
+    }
+})
+
+let featuredSlide = new Splide('.splide', {
+    perPage: 1,
+    gap: '1em',
+    pagination: true,
+    width: '100%'
+})
 
 function getFeaturedIDs() {
     for (let i = 1; i <= 3; i++) {
@@ -74,12 +101,6 @@ async function getFeaturedPokemon(arr) {
     });
 
 }
-let featuredSlide = new Splide('.splide', {
-    perPage: 1,
-    gap: '1em',
-    pagination: true,
-    width: '100%'
-})
 
 window.addEventListener('DOMContentLoaded', (event) => {
     getFeaturedIDs(); // THIS FUNCTION SHOULD ONLY RUN ONCE A DAY, don't want new pokemon with every refresh
