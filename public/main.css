@@ -45,6 +45,15 @@
     --yellowMain: rgb(236, 208, 85);
     --yellowAccent: #000;
 }
+/* SWUP TRANSITION */
+.transition-fade {
+    transition: 0.4s;
+    opacity: 1;
+}
+
+html.is-animating .transition-fade {
+    opacity: 0;
+}
 ul {
     list-style-type: none;
 }
@@ -62,7 +71,7 @@ main {
     justify-content: space-evenly; */
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: auto 1fr 1fr;
+    grid-template-rows: auto 1fr 0.75fr;
     grid-gap: 10px;
     grid-template-areas: 
     "featPokemon"
@@ -218,8 +227,10 @@ h2 {
     opacity: 0.05;
 }
 /* Favourite Pokemon */
-.favouriteSection {
-    width: 100%;
+.favouritesSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .favTitleBox {
     display: flex;
@@ -266,7 +277,7 @@ h2 {
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 20px;
 }
 #browseButton {
     height: 40%;
@@ -276,5 +287,5 @@ h2 {
     color: var(--white);
     width: auto;
     font-size: 1.25rem;
-    /* padding: 10px 15px; */
+    padding: 10px 15px;
 }

@@ -2,8 +2,6 @@
 
 console.log('Hey! Looks like this is working!');
 
-
-
 let featuredPokemonIDs = [];
 let containerBox = document.getElementById('featPokemonContainer');
 let pokemonHTML = [];
@@ -27,8 +25,6 @@ const header = document.querySelector('header');
 
 main.style.height = `${windowHeight - header.clientHeight}px`;
 
-
-
 menuButton.addEventListener('click', () => {
     sidebar.classList.toggle('activeSidebar');
     main.classList.toggle('activeMenu');
@@ -38,13 +34,13 @@ window.addEventListener('click', (event) => {
     if (sidebar.classList.contains('activeSidebar')) {
         console.log(event.target);
         if (event.target == header || main.contains(event.target)) {
-            console.log('clicked!');
             sidebar.classList.toggle('activeSidebar');
             main.classList.toggle('activeMenu');
             header.classList.toggle('activeMenu');
         }
     }
 })
+
 
 let featuredSlide = new Splide('.splide', {
     perPage: 1,
@@ -116,6 +112,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     featuredSlide.mount();
 });
 
+import Swup from 'swup';
+const swup = new Swup(); 
+let mainBox = document.getElementById('swup');
 
 
 

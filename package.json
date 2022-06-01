@@ -23,6 +23,7 @@
   "homepage": "https://github.com/danajcarroll/newPokedex#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "node-cron": "^3.0.0"
+    "node-cron": "^3.0.0",
+    "swup": "^2.0.14"
   }
 }
