@@ -16,11 +16,17 @@ let featNames = document.getElementsByClassName('featName');
 let featNameList = [...featNames];
 let featImages = document.getElementsByClassName('featImage');
 let featImageList = [...featImages];
+
+const windowHeight = window.innerHeight;
+
 // Menu bar
 const menuButton = document.getElementById('menuButton');
 const sidebar = document.getElementById('sidebar');
 const main = document.querySelector('main');
 const header = document.querySelector('header');
+
+main.style.height = `${windowHeight - header.clientHeight}px`;
+
 
 
 menuButton.addEventListener('click', () => {
@@ -29,11 +35,14 @@ menuButton.addEventListener('click', () => {
     header.classList.toggle('activeMenu');
 })
 window.addEventListener('click', (event) => {
-    if (!event.target == header || event.target == main) {
-        console.log('clicked!');
-        sidebar.classList.toggle('activeSidebar');
-        main.classList.toggle('activeMenu');
-        header.classList.toggle('activeMenu');
+    if (sidebar.classList.contains('activeSidebar')) {
+        console.log(event.target);
+        if (event.target == header || main.contains(event.target)) {
+            console.log('clicked!');
+            sidebar.classList.toggle('activeSidebar');
+            main.classList.toggle('activeMenu');
+            header.classList.toggle('activeMenu');
+        }
     }
 })
 
@@ -99,7 +108,6 @@ async function getFeaturedPokemon(arr) {
             });
         }
     });
-
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
