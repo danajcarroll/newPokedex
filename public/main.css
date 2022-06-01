@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-weight: normal;
+    font-family: 'Inter', sans-serif;
 }
 :root {
     --accentRed: #FF6464;
@@ -12,6 +13,7 @@
     --activeHeart: #FFCFCF;
     --lightGrey: #F1F1F1;
     --darkGrey: #5B5B5B;
+    --pink: #F8B0CA;
 
     --blackMain: rgb(67, 67, 67);
     --blackAccent: #000;
@@ -219,6 +221,23 @@ h2 {
 .favouriteSection {
     width: 100%;
 }
+.favTitleBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.favTitleBox h2 {
+    font-size: 1.2rem;
+}
+.favTitleBox button {
+    cursor: pointer;
+    border: none;
+    background-color: var(--pink);
+    padding: 1px 5px;
+    border-radius: 3px;
+
+}
 .favouriteList {
     display: flex;
     flex-direction: row;
@@ -241,4 +260,21 @@ h2 {
     position: absolute;
     bottom: 0;
     right: 0;
+}
+/* Browse All Pokemon */
+.browsePokemon {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#browseButton {
+    height: 40%;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--accentRed);
+    color: var(--white);
+    width: auto;
+    font-size: 1.25rem;
+    /* padding: 10px 15px; */
 }
